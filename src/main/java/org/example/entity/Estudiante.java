@@ -1,7 +1,6 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
-import jdk.jfr.DataAmount;
 
 import java.util.List;
 

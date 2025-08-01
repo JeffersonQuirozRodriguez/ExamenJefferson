@@ -4,12 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.example.entity.EstadoInscripcion;
 import org.example.entity.Inscripcion;
-import org.example.util.InicioSesion;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public class ReporteService {
@@ -84,7 +80,7 @@ public class ReporteService {
         List<Inscripcion> resultados = query.getResultList();
 
         if (resultados.isEmpty()) {
-            System.out.println("No se encontraron inscripciones con los filtros.");
+            System.out.println("No se encontraron inscripciones.");
         } else {
             System.out.println("Inscripciones encontradas:");
             for (Inscripcion i : resultados) {
@@ -96,4 +92,21 @@ public class ReporteService {
         }
     }
 
+    // d) Reporte complejo: carga académica por profesor
+    public void cargaAcademicaPorProfesor() {
+        String jpql = "SELECT p.nombre, SUM(c.creditos) " +
+                "FROM Profesor p JOIN p.cursos c " +
+                "GROUP BY p.id, p.nombre";
+
+        List<Object[]> resultados = em.createQuery(jpql, Object[].class).getResultList();
+
+        if (resultados.isEmpty()) {
+            System.out.println("No hay profesores con carga académica.");
+        } else {
+            System.out.println("Carga académica por profesor:");
+            for (Object[] r : resultados) {
+                System.out.println("- Profesor: " + r[0] + " | Créditos totales: " + r[1]);
+            }
+        }
+    }
 }
