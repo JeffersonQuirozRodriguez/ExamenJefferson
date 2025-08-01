@@ -14,7 +14,7 @@ public class Main {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("MENÚ DE REPORTES");
                 System.out.println("1. Cursos con inscripciones y promedio de créditos");
-                System.out.println("2. Estudiantes con > 2 cursos");
+                System.out.println("2. Estudiantes con más de 2 cursos");
                 System.out.println("3. Buscar inscripciones por filtros");
                 System.out.println("4. Carga académica de profesores");
                 System.out.print("Seleccione: ");
@@ -23,6 +23,7 @@ public class Main {
 
                 switch (op) {
                     case 1 -> service.listarCursosConEstadisticas();
+                    case 2 -> service.estudiantesConMasDe2Cursos();
                     default -> System.out.println("Opción no válida");
                 }
 
