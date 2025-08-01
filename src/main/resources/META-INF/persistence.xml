@@ -19,7 +19,7 @@
             <property name="jakarta.persistence.jdbc.password" value="mysql"/>
             <!-- Dialecto Hibernate -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 
