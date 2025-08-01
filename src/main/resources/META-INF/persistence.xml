@@ -4,10 +4,12 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
              https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-    <persistence-unit name="ClinivetPU" >
+    <persistence-unit name="AcademiaPU" >
+        <class>org.example.entity.Profesor</class>
+        <class>org.example.entity.Estudiante</class>
+        <class>org.example.entity.Curso</class>
+        <class>org.example.entity.Inscripcion</class>
 
-        <class>org.example.entity.Empleado</class>
-        <class>org.example.entity.Departamento</class>
 
         <properties>
 
